@@ -4,13 +4,13 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "sample")
+@Table(name = "samplesoobin")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Sample {
+public class SampleSoobin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
