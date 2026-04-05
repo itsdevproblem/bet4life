@@ -16,4 +16,16 @@ public class SampleService2 {
     public List<SampleSoobin> getAllSample() {
         return sampleRepository.findAll();
     }
+
+    public List<SampleSoobin> select(String name){
+        return sampleRepository.search(name);
+    }
+
+    public SampleSoobin save(String name) {
+        return sampleRepository.save(
+                SampleSoobin.builder()
+                        .name(name)
+                        .build()
+        );
+    }
 }
