@@ -1,6 +1,6 @@
 package com.example.betting.user.repository;
 
-import static com.example.betting.user.QUser.user; // 빌드 후 생성된 Q클래스 import
+import static com.example.betting.user.vo.QUser.user; // 빌드 후 생성된 Q클래스 import
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.example.betting.member.repository;
 
-import static com.example.betting.member.QMember.member;
+import static com.example.betting.member.vo.QMember.member;
 
 import java.util.List;
 
