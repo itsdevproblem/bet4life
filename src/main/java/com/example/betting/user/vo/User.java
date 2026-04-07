@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "BT_USERS") // Oracle 예약어인 'USER' 대신 'USERS' 추천
 @Getter
-@Setter
+// @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // JPA 기본 생성자
 @AllArgsConstructor
 @Builder
@@ -32,4 +32,8 @@ public class User {
 
     @Builder.Default // 빌더 사용 시 기본값 유지
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    public void udpateAge(int i) {
+        age = i;
+    }
 }

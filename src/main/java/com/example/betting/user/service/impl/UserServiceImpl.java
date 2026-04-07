@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public User editAge() {
         User user = getUser(1L);
-        user.setAge(2);
+        user.udpateAge(2);
         return user;
     }
 }
