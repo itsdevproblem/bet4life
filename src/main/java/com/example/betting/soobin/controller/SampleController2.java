@@ -37,7 +37,7 @@ public class SampleController2 {
 
     @PostMapping("/addSample")
     public Map<String,Object> addSample(@RequestBody SampleDTO sampleDTO){
-        SampleSoobin ss = sampleService.addSample(sampleDTO.getName());
+        SampleSoobin ss = sampleService.addSample(sampleDTO);
 
         Map<String, Object> result = new HashMap<>();
         result.put("result", ss == null ? "fail" : "success");

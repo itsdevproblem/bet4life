@@ -23,10 +23,10 @@ public class SampleService2 {
         return sampleRepository.search(name);
     }
 
-    public SampleSoobin addSample(String name) {
+    public SampleSoobin addSample(SampleDTO sampleDTO) {
         return sampleRepository.save(
                 SampleSoobin.builder()
-                        .name(name)
+                        .name(sampleDTO.getName())
                         .build()
         );
     }
