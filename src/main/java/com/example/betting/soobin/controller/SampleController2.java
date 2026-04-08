@@ -35,6 +35,11 @@ public class SampleController2 {
         return d;
     }
 
+    @GetMapping("/searchById")
+    public SampleSoobin searchById(@RequestParam Long id){
+        return sampleService.selectById(id);
+    }
+
     @PostMapping("/addSample")
     public Map<String,Object> addSample(@RequestBody SampleDTO sampleDTO){
         SampleSoobin ss = sampleService.addSample(sampleDTO);

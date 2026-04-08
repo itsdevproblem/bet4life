@@ -23,6 +23,10 @@ public class SampleService2 {
         return sampleRepository.search(name);
     }
 
+    public SampleSoobin selectById(Long id){
+        return sampleRepository.findById(id).orElseThrow();
+    }
+
     public SampleSoobin addSample(SampleDTO sampleDTO) {
         return sampleRepository.save(
                 SampleSoobin.builder()

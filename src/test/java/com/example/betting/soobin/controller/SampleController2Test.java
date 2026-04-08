@@ -69,7 +69,7 @@ class SampleController2Test {
         SampleDTO dto = new SampleDTO();
         dto.setName("이뜌빈");
 
-        when(sampleService.addSample("이뜌빈")).thenReturn(new SampleSoobin());
+        when(sampleService.addSample(any())).thenReturn(new SampleSoobin());
 
         mockMvc.perform(post("/soobin/addSample")
                         .contentType("application/json")
@@ -86,7 +86,7 @@ class SampleController2Test {
 
 
 
-        when(sampleService.addSample(dto)).thenReturn(null); // 만약 null 을 return 한다면
+        when(sampleService.addSample(any())).thenReturn(null); // 만약 null 을 return 한다면
 
         mockMvc.perform(post("/soobin/addSample")
                         .contentType("application/json")
