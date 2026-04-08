@@ -28,17 +28,26 @@ public class SampleController2 {
     }
 
 
-    @GetMapping("/queryDSL/select")
-    public List<SampleSoobin> select(String name){
-        List<SampleSoobin> d = sampleService.select(name);
+    @GetMapping("/search")
+    public List<SampleSoobin> select(@RequestBody SampleDTO sampleDTO){
+        List<SampleSoobin> d = sampleService.select(sampleDTO.getName());
 
         return d;
     }
 
     @PostMapping("/addSample")
     public Map<String,Object> addSample(@RequestBody SampleDTO sampleDTO){
-        SampleSoobin ss = sampleService.save(sampleDTO.getName());
+        SampleSoobin ss = sampleService.addSample(sampleDTO.getName());
 
+        Map<String, Object> result = new HashMap<>();
+        result.put("result", ss == null ? "fail" : "success");
+
+        return result;
+    }
+
+    @PostMapping("/updateSample")
+    public Map<String, Object> updateSample(@RequestBody SampleDTO sampleDTO){
+        SampleSoobin ss = sampleService.updateSample(sampleDTO);
 
         Map<String, Object> result = new HashMap<>();
         result.put("result", ss == null ? "fail" : "success");

@@ -16,6 +16,7 @@ public class SampleRepository2Impl implements SampleRepositoryCustom2{
 
     @Override
     public List<SampleSoobin> search(String name) {
+        System.out.println(name);
         QSampleSoobin sample = QSampleSoobin.sampleSoobin;
         return queryFactory
                 .selectFrom(sample)
