@@ -25,7 +25,7 @@ public class ShipRepositoryCustomImpl implements ShipRepositoryCustom {
                 .where(
                         nameEq(name)
                 )
-                .orderBy(ship.id.desc())
+                .orderBy(ship.shipId.desc())
                 .limit(10)
                 .fetch();
     }
