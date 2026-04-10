@@ -2,12 +2,15 @@ package com.example.betting.ship.infrastructure.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.example.betting.ship.infrastructure.ShipRepositoryCustom;
 import com.example.betting.ship.infrastructure.entity.QShipEntity;
 import com.example.betting.ship.infrastructure.entity.ShipEntity;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
+@Repository
 public class ShipRepositoryCustomImpl implements ShipRepositoryCustom {
 
     private final JPAQueryFactory queryFactory;

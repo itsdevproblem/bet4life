@@ -36,8 +36,8 @@ public class ShipRepositoryImpl implements ShipRepository {
     }
 
     @Override
-    public Optional<Ship> findByUsrIdAndDelYn(String usrId, String delYn) {
-        return shipJpaRepository.findByUsrIdAndDelYn(usrId, delYn).map(ShipEntity::toModel);
+    public Optional<Ship> findByNameAndWeight(String name, int weight) {
+        return shipJpaRepository.findByNameAndWeight(name, weight).map(ShipEntity::toModel);
     }
 
     @Override

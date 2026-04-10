@@ -10,6 +10,6 @@ import com.example.betting.ship.infrastructure.entity.ShipEntity;
 @Repository
 public interface ShipJpaRepository extends JpaRepository<ShipEntity, Long> {
 
-    Optional<ShipEntity> findByUsrIdAndDelYn(String usrId, String delYn);
+    Optional<ShipEntity> findByNameAndWeight(String name, int weight);
     
 }

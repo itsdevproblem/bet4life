@@ -9,7 +9,7 @@ public interface ShipRepository {
     List<Ship> findAll();
     Optional<Ship> findById(Long id);
     Ship save(Ship ship);
-    Optional<Ship> findByUsrIdAndDelYn(String usrId, String delYn);
+    Optional<Ship> findByNameAndWeight(String name, int weight);
     
     List<Ship> search(String name);
 }
