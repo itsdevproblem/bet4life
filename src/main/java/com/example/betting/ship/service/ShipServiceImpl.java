@@ -9,9 +9,11 @@ import com.example.betting.ship.controller.port.ShipService;
 import com.example.betting.ship.domain.Ship;
 import com.example.betting.ship.service.port.ShipRepository;
 
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 
 @Service
+@Builder
 @RequiredArgsConstructor
 public class ShipServiceImpl implements ShipService {
 

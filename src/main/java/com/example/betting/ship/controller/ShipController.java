@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.betting.ship.controller.port.ShipService;
 import com.example.betting.ship.domain.Ship;
 
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 
+@Builder
 @RestController
 @RequestMapping("/ship")
 @RequiredArgsConstructor
