@@ -7,6 +7,7 @@ import lombok.Getter;
 @Builder
 public class ShipRequestDto {
     
-    private Long id;
+    private Long shipId;
     private String name;
+    private int weight;
 }

@@ -39,13 +39,14 @@ public class ShipServiceImpl implements ShipService {
         return shipRepository.save(
                 Ship.builder()
                     .name(requestDto.getName())
+                    .weight(requestDto.getWeight())
                     .build()
         );
     }
 
     @Override
     public Ship updateSample(ShipRequestDto requestDto) {
-        Ship ss = shipRepository.findById(requestDto.getId()).orElseThrow();
+        Ship ss = shipRepository.findById(requestDto.getShipId()).orElseThrow();
 
         ss.updateName(requestDto.getName());
 
