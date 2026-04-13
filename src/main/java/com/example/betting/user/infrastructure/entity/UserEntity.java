@@ -1,5 +1,6 @@
-package com.example.betting.user.vo;
+package com.example.betting.user.infrastructure.entity;
 
+import com.example.betting.user.domain.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // JPA 기본 생성자
 @AllArgsConstructor
 @Builder
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
@@ -33,7 +34,23 @@ public class User {
     @Builder.Default // 빌더 사용 시 기본값 유지
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    public void udpateAge(int i) {
-        age = i;
+    public User toModel() {
+        return User.builder()
+                .id(id)
+                .username(username)
+                .password(password)
+                .email(email)
+                .age(age)
+                .build();
+    }
+
+    public static UserEntity from(User user) {
+        return UserEntity.builder()
+                .id(user.getId())
+                .username(user.getUsername())
+                .password(user.getPassword())
+                .email(user.getEmail())
+                .age(user.getAge())
+                .build();
     }
 }

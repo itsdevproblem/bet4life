@@ -1,15 +1,23 @@
 package com.example.betting.user.controller;
 
+import com.example.betting.ship.controller.ShipRequestDto;
+import com.example.betting.ship.domain.Ship;
+import com.example.betting.user.domain.User;
+import com.example.betting.user.infrastructure.entity.UserEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.betting.user.service.UserService;
-import com.example.betting.user.vo.User;
+import com.example.betting.user.controller.port.UserService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -19,35 +27,39 @@ public class UserController {
     
     private final UserService userService;
 
-    @GetMapping("/a")
-    public ResponseEntity<Object> a() {
+    @GetMapping("/a") // list all
+    public Map<String, Object> a() {
         userService.list();
-        // userRepository.searchUsers("BTS",20);
-        // userRepository.searchUsers1("BTS",20);
-        // userRepository.searchUsers2("BTS",20);
-        // userRepository.searchUsers3("BTS",20);
-        return ResponseEntity.ok().build();
+
+        List<User> data = userService.list();
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("result", data);
+        return result;
     }
 
-    @GetMapping("/b")
-    public ResponseEntity<Object> b() {
-        userService.save(
-            User.builder()
-            .username("username")
-            .age(1)
-            .email("email")
-            .password("password")
-            .build());
-        return ResponseEntity.ok().build();
+    @GetMapping("/b") // insert (add)
+    public Map<String, Object> b(@RequestBody UserRequestDTO requestDto) {
+        User ss = userService.save(requestDto);
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("result", ss == null ? "fail" : "success");
+        return result;
     }
 
     @GetMapping("/c")
-    public ResponseEntity<Object> c() {
-        return ResponseEntity.ok(userService.getUser(1L));
+    public User c(@RequestBody UserRequestDTO requestDto) {
+
+        return userService.getUser(requestDto.getId());
     }
 
     @GetMapping("/d")
-    public User d() {
-        return userService.editAge();
+    public Map<String, Object> d(@RequestBody UserRequestDTO requestDTO) {
+
+        User ss = userService.editAge(requestDTO);
+        Map<String, Object> result = new HashMap<>();
+        result.put("result", ss == null ? "fail" : "success");
+
+        return result;
     }
  }
