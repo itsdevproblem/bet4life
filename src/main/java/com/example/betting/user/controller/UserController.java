@@ -4,6 +4,7 @@ import com.example.betting.ship.controller.ShipRequestDto;
 import com.example.betting.ship.domain.Ship;
 import com.example.betting.user.domain.User;
 import com.example.betting.user.infrastructure.entity.UserEntity;
+import lombok.Builder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +22,7 @@ import java.util.Map;
 
 @Slf4j
 @RestController
+@Builder
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
